@@ -1,3 +1,9 @@
+/*
+Sheet 3
+Nico Aebischer
+Tim Bachmann
+*/
+
 import java.util.*;
 
 public class UniformCostSearch extends SearchAlgorithmBase {
@@ -18,7 +24,7 @@ public class UniformCostSearch extends SearchAlgorithmBase {
         HashSet<State> closed = new HashSet<>();
 
         while(!openList.isEmpty()) {
-            System.out.println((long) openList.size());
+            //System.out.println((long) openList.size());
             SearchNode searchNode = openList.poll();
             if (!closed.contains(searchNode.state)){
                 closed.add(searchNode.state);

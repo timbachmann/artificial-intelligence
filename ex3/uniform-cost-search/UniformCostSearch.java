@@ -3,7 +3,8 @@ import java.util.*;
 public class UniformCostSearch extends SearchAlgorithmBase {
 
     public static void main(String[] args) {
-        new UniformCostSearch(args);
+        UniformCostSearch uniformCostSearch = new UniformCostSearch(args);
+        uniformCostSearch.runSearchAlgorithm();
     }
 
     public UniformCostSearch(String[] args) {
@@ -17,7 +18,8 @@ public class UniformCostSearch extends SearchAlgorithmBase {
         HashSet<State> closed = new HashSet<>();
 
         while(!openList.isEmpty()) {
-            SearchNode searchNode = openList.peek();
+            System.out.println((long) openList.size());
+            SearchNode searchNode = openList.poll();
             if (!closed.contains(searchNode.state)){
                 closed.add(searchNode.state);
                 if (stateSpace.isGoal(searchNode.state)) {
@@ -52,7 +54,7 @@ public class UniformCostSearch extends SearchAlgorithmBase {
         return path;
     }
 
-    static class SearchNode {
+    class SearchNode {
         SearchNode parent;
         Action action;
         State state;

@@ -27,14 +27,16 @@ public class UniformCostSearch extends SearchAlgorithmBase {
             //System.out.println((long) openList.size());
             SearchNode searchNode = openList.poll();
             if (!closed.contains(searchNode.state)){
+                expandedNodes++;
                 closed.add(searchNode.state);
                 if (stateSpace.isGoal(searchNode.state)) {
+                    expandedNodes--;
                     return extractPath(searchNode);
                 }
                 for (ActionStatePair actionStatePair : stateSpace.succ(searchNode.state)) {
                     SearchNode newSearchNode = new SearchNode(searchNode, actionStatePair.action, actionStatePair.state, stateSpace);
                     openList.add(newSearchNode);
-                    expandedNodes++;
+
                 }
             }
         }

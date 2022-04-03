@@ -28,6 +28,7 @@ public class BestFirstSearch extends SearchAlgorithmBase {
                 closed.add(searchNode.state);
                 expandedNodes++;
                 if (stateSpace.isGoal(searchNode.state)) {
+                    expandedNodes--;
                     return extractPath(searchNode);
                 }
                 for (ActionStatePair actionStatePair : stateSpace.succ(searchNode.state)) {
